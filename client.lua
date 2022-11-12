@@ -1,5 +1,7 @@
 ESX = exports["es_extended"]:getSharedObject()
 
+-- NetworkIsSessionStarted() -- Ignore this!
+
 RegisterNetEvent('esx:playerLoaded')
 AddEventHandler('esx:playerLoaded', function(xPlayer)
     if ESX.IsPlayerLoaded() then

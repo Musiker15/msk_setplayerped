@@ -4,7 +4,7 @@ games { 'gta5' }
 author 'Musiker15 - MSK Scripts'
 name 'msk_setplayerped'
 description 'Set your PlayerPed to an animal'
-version '1.0'
+version '1.1'
 
 lua54 'yes'
 
