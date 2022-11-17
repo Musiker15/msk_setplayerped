@@ -35,6 +35,21 @@ RegisterCommand('setPlayerModel', function(source, args, rawCommand)
 		else
 			print('^1 SYNTAX ERROR:^5 setPlayerModel <playerID> <model> ^0')
 		end
+	elseif (source > 0) then 
+		if not args[1] then 
+			local xPlayer = ESX.GetPlayerFromId(source)
+			local model = MySQL.query.await("SELECT * FROM users WHERE identifier = @identifier", {
+				['@identifier'] = xPlayer.identifier
+			})
+
+			if model[1] and model[1].pedModel then
+				xPlayer.triggerEvent('msk_setPlayerModel:setPlayerModel', model[1].pedModel)
+			else
+				xPlayer.showNotification('You can not use this Command')
+			end
+		else
+			print('^1 SYNTAX ERROR:^5 setPlayerModel <playerID> <model> ^0')
+		end
     end
 end)
 
