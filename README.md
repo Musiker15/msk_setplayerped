@@ -12,6 +12,9 @@ Commands are only executeable in server console
 * `setPlayerModel <playerID> <model>`
 * `setDefaultModel <playerID>`
 
+This is the Ingame Command. You can only use it if you already set a ped in Serverconsole
+* `/setPlayerModel`
+
 ## Requirements
 * ESX
 * oxmysql
