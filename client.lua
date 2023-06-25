@@ -1,6 +1,14 @@
 ESX = exports["es_extended"]:getSharedObject()
 
 -- NetworkIsSessionStarted() -- Ignore this!
+RegisterNetEvent('esx:playerLoaded')
+AddEventHandler('esx:playerLoaded', function(xPlayer, isNew, skin)
+    Wait(1000) -- Please Do Not Touch! // This is for slower PCs
+
+    ESX.TriggerServerCallback('msk_setPlayerModel:getPedModelFromDB', function(ped)
+       if ped then setPedModel(ped) end
+    end)
+end)
 
 RegisterNetEvent('msk_setPlayerModel:setPlayerModel')
 AddEventHandler('msk_setPlayerModel:setPlayerModel', function(model)
