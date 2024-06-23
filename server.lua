@@ -10,15 +10,15 @@ AddEventHandler('onResourceStart', function(resource)
 	end
 end)
 
-ESX.RegisterServerCallback('msk_setPlayerModel:getPedModelFromDB', function(source, cb)
+ESX.Register('msk_setPlayerModel:getPedModelFromDB', function(source)
     local model = MySQL.query.await("SELECT * FROM users WHERE identifier = @identifier", {
 		['@identifier'] = ESX.GetPlayerFromId(source).identifier
 	})
 
     if model[1] and model[1].pedModel then
-        cb(model[1].pedModel)
+        return model[1].pedModel
     else
-        cb(false)
+        return false
     end
 end)
 
